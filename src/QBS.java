@@ -18,12 +18,10 @@ public class QBS {
 		EventQueue.invokeLater(new Runnable() {	
 			@Override
 			public void run() {
-				JFrame frame = new MainFrame();
-				
+				JFrame frame = new MainFrame();	
 				frame.setTitle("QBS");
 				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.setVisible(true);
-				
+				frame.setVisible(true);	
 			}
 		});
 		

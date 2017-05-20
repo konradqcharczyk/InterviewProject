@@ -21,7 +21,6 @@ public class Cont extends JPanel{
 	     add(new JPanel(), BorderLayout.EAST);
 	     add(new JPanel(), BorderLayout.WEST);
 	     MainPanel mainPanel = new MainPanel();
-
 	     add(mainPanel, BorderLayout.CENTER);
 	}
 }

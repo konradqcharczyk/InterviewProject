@@ -40,8 +40,6 @@ public class MainPanel extends JPanel{
 		addFirstBytesTF();
 		addSecondBytesTF();
 		addStartPanel();
-		
-
 	}
 	
 	/**
@@ -55,32 +53,27 @@ public class MainPanel extends JPanel{
 			}
 		});
 		
-		
 		for(File c : matchingFiles)
-		{
 			System.out.println(c);
-		}
 	}
 	
 	private void test2() throws IOException{
 		FileInputStream in = null;
 		FileOutputStream out = null;
-		try{
-		 in = new FileInputStream("C:\\Users\\Kokos\\Desktop\\3215424.jpg");
-		 out = new FileOutputStream("C:\\Users\\Kokos\\Desktop\\3215424dsadsa.jpg");
-		int c;
 		
-		while( (c = in.read()) != -1 ){
-				out.write(c);
-		}
+		try{
+			in = new FileInputStream("C:\\Users\\Kokos\\Desktop\\3215424.jpg");
+			out = new FileOutputStream("C:\\Users\\Kokos\\Desktop\\3215424dsadsa.jpg");
+			int c;
+	
+			while( (c = in.read()) != -1 )
+					out.write(c);
 		}
 		finally {
-            if (in != null) {
+            if (in != null) 
                 in.close();
-            }
-            if (out != null) {
+            if (out != null)
                 out.close();
-            }
 		}
 		
 	}
@@ -107,8 +100,8 @@ public class MainPanel extends JPanel{
 			public void actionPerformed(ActionEvent arg0) {
 				int returnVal = fc.showOpenDialog(new JFrame("Wybierz"));
 				if (returnVal == JFileChooser.APPROVE_OPTION){ 
-					startDirection = fc.getSelectedFile();
-		            fcText.setText(startDirection.getPath());
+				    startDirection = fc.getSelectedFile();
+				    fcText.setText(startDirection.getPath());
 				}
 			}
 	
@@ -136,11 +129,15 @@ public class MainPanel extends JPanel{
 	
 	private void addStartButton(){
 		startButton = new JButton("Start");
-		startButton.addActionListener(new ActionListener() {
-			
+		startButton.addActionListener(new ActionListener() {	
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				test();
+				try {
+					test2();
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
 			}
 		});
 		startPanel.add(startButton);
@@ -151,6 +148,5 @@ public class MainPanel extends JPanel{
 		addEmptyLabel();
 		addStartButton();
 		add(startPanel);
-		
 	}
 }
